@@ -17,8 +17,8 @@ const navButtons: NavMenuButton[] = [
         route: "/services"
     },
     {
-        content: "Área de envio",
-        route: "/submit"
+        content: "Área de acesso",
+        route: "/login"
     },
     {
         content: "Contato",
@@ -30,7 +30,7 @@ export default function Header() {
     return (
         <div className="w-full flex flex-col items-center">
             <div className="flex flex-col pt-6 gap-1 items-center">
-                <Image src={LogoImage} alt="Logo" className="w-40 h-16" />
+                <Image src={LogoImage} alt="Logo" className="w-36 h-12 md:w-40 md:h-16" />
                 <h1
                     className={`
                         font-roboto-extra-light
@@ -41,6 +41,7 @@ export default function Header() {
                         transform
                         scale-y-75
                         origin-left
+                        text-center
                     `}
                 >
                     Foto Cristal

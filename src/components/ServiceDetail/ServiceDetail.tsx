@@ -8,7 +8,7 @@ export type ServiceDetailProps = {
 
 export default function ServiceDetail({ title, photo, services }: ServiceDetailProps) {
     return (
-        <div className="flex flex-col p-4 items-center bg-[#F0F0E0] rounded-r-md rounded-l-md">
+        <div className="flex flex-col p-4 items-center bg-[#F7F7ED] border-1 border-[#E5E5D5] rounded-r-md rounded-l-md">
             <div className="p-4">
                 <Image
                     src={photo}

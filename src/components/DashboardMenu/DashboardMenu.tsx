@@ -5,9 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LogoImage from "@/assets/images/logo.png";
 import Image from "next/image";
 import { useAuth } from "@/context/AuthUserContext";
+import { useState } from "react";
 
 export default function DashboardMenu() {
     const { signOut, loading, authUser } = useAuth();
+
+    const [isOverlayOpen, setIsOverlayOpen] = useState(false);
     
     const handleLogout = () => {
         signOut()
@@ -23,6 +26,10 @@ export default function DashboardMenu() {
     if (loading || !authUser) {
         return <></>;
     }
+
+    const handleOverlayToggle = () => {
+        setIsOverlayOpen(!isOverlayOpen);
+    };
     
     return (
         <>
@@ -72,9 +79,40 @@ export default function DashboardMenu() {
             <div
                 className="absolute top-1.5 left-1.5 w-16 h-16 flex items-center justify-center cursor-pointer md:hidden"
             >
-                <button>
+                <button
+                    onClick={handleOverlayToggle}
+                >
                     <FontAwesomeIcon icon={faBars} />
                 </button>
+            </div>
+
+            {/* Overlay menu mobile */}
+            <div
+                className={`fixed top-0 left-0 w-3/4 h-full bg-[#e8eac7] transition-all duration-100 ease-in-out z-50 ${isOverlayOpen ? 'block' : 'hidden'}`}
+            >
+                <button
+                    className="top-1.5 left-1.5 w-16 h-16 flex items-center justify-center cursor-pointer"
+                    onClick={handleOverlayToggle}
+                >
+                    <FontAwesomeIcon icon={faBars} />
+                </button>
+                <div className="w-full h-full flex flex-col items-center px-8 py-2">
+                    <Image src={LogoImage} alt="Logo" className="w-20 h-8" />
+                    <h1
+                        className={`
+                        font-roboto-extra-light
+                        text-[#daa520]
+                        text-3xl
+                        uppercase
+                        transform
+                        scale-y-75
+                        origin-left
+                        text-center    
+                        `}
+                    >
+                        Foto Cristal
+                    </h1>
+                </div>
             </div>
         </>
     );

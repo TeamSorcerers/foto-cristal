@@ -8,9 +8,11 @@ export type TextFieldProps = {
     type: HTMLInputTypeAttribute;
     id: string;
     name: string;
+    inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+    isError?: boolean;
 };
 
-export default function TextField({ type, id, name }: TextFieldProps) {
+export default function TextField({ type, id, name, inputProps, isError }: TextFieldProps) {
     const [showPassword, setShowPassword] = useState(false);
     const isPassword = type === "password";
 
@@ -20,7 +22,10 @@ export default function TextField({ type, id, name }: TextFieldProps) {
                 type={isPassword && showPassword ? "text" : type}
                 id={id}
                 name={name}
-                className="h-8 text-xl border border-[#C0C0B0] rounded-md outline-[#C0C0B0] text-[#888877] p-4 pr-10 w-full"
+                className={`h-8 text-xl border border-[#C0C0B0] rounded-md outline-[#C0C0B0] text-[#888877] p-4 pr-10 w-full ${
+                    isError ? "border-[#caaca9] outline-[#bea4a4]" : ""
+                }`}
+                {...inputProps}
             />
             {isPassword && (
                 <button

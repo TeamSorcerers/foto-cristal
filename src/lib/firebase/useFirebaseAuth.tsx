@@ -6,6 +6,8 @@ import {
   onAuthStateChanged as _onAuthStateChanged,
   createUserWithEmailAndPassword as _createUserWithEmailAndPassword,
   signInWithEmailAndPassword as _signInWithEmailAndPassword,
+  sendPasswordResetEmail as _sendPasswordResetEmail,
+  confirmPasswordReset as _confirmPasswordReset,
   signOut as _signOut,
   GoogleAuthProvider,
   signInWithPopup,
@@ -55,6 +57,12 @@ export default function useFirebaseAuth() {
   const signOut = () =>
     _signOut(auth).then(clear);
 
+  const sendPasswordResetEmail = (email: string) =>
+    _sendPasswordResetEmail(auth, email);
+
+  const confirmPasswordReset = (code: string, newPassword: string) =>
+    _confirmPasswordReset(auth, code, newPassword);
+
   const onAuthStateChanged = (cb: (user: User | null) => void) => {
      return _onAuthStateChanged(auth, cb);
   }
@@ -71,5 +79,7 @@ export default function useFirebaseAuth() {
     createUserWithEmailAndPassword,
     signInWithGoogle,
     signOut,
+    sendPasswordResetEmail,
+    confirmPasswordReset,
   };
 }

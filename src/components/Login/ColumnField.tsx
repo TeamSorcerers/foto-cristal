@@ -1,5 +1,5 @@
 export type ColumnFieldProps = {
-    children: React.ReactNode[];
+    children: React.ReactNode;
 }
 
 export default function ColumnField({ children }: ColumnFieldProps) {

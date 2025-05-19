@@ -10,6 +10,8 @@ export interface AuthUserContextProps {
     createUserWithEmailAndPassword: (email: string, password: string) => Promise<UserCredential>;
     signOut: () => Promise<void>;
     signInWithGoogle: () => Promise<User | null>;
+    sendPasswordResetEmail: (email: string) => Promise<void>;
+    confirmPasswordReset: (code: string, newPassword: string) => Promise<void>;
 }
 
 const authUserContext = createContext<AuthUserContextProps>({
@@ -26,6 +28,12 @@ const authUserContext = createContext<AuthUserContextProps>({
   },
   signInWithGoogle: async () => {
     throw new Error('signInWithGoogle not implemented');
+  },
+  sendPasswordResetEmail: async () => {
+    throw new Error('sendPasswordResetEmail not implemented');
+  },
+  confirmPasswordReset: async () => {
+    throw new Error('confirmPasswordReset not implemented');
   },
 });
 

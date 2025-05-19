@@ -23,6 +23,14 @@ const navButtons: NavMenuButton[] = [
     {
         content: "Contato",
         route: "/contact"
+    },
+    {
+        content: "Admin",
+        route: "/dashboard/admin"
+    },
+    {
+        content: "DashboardCliente",
+        route: "/dashboard/client"
     }
 ]
 

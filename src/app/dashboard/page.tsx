@@ -1,15 +1,19 @@
 'use client';
 
+import AdminArea from "@/components/Dashboard/AdminArea";
 import ClientArea from "@/components/Dashboard/ClientArea";
 import Header from "@/components/Header/Header";
 import { useAuth } from "@/context/AuthUserContext";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Dashboard(){
     const { authUser, loading } = useAuth();
     const router = useRouter();
-  
+    const searchParams = useSearchParams();
+
+    const isAdmin = searchParams.has('admin');
+
     useEffect(() => {
       if (!authUser && !loading) {
         router.push('/login');
@@ -30,7 +34,11 @@ export default function Dashboard(){
       <div className="w-full h-full">
         <Header />
         <div className="md:px-4 md:py-6 md:max-w-screen-xl mx-auto flex flex-col gap-8 items-center">
-          <ClientArea />
+          {
+            !isAdmin
+            ? <ClientArea />
+            : <AdminArea />
+          }
         </div>
       </div>
     );

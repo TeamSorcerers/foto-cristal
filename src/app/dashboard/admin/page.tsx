@@ -1,6 +1,7 @@
 "use client";
+import { faDownload, faSyncAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { FaSyncAlt, FaDownload } from "react-icons/fa";
 
 type Status = "Resolvido" | "Aguardando" | "Cancelado";
 
@@ -83,7 +84,7 @@ export default function AdminDashboard() {
                     onClick={() => alterarStatus(pedido.id)}
                     title="Alterar Situação"
                   >
-                    <FaSyncAlt size={16} />
+                    <FontAwesomeIcon icon={faSyncAlt} size="sm" />
                   </button>
                   <a
                     href={pedido.fotosUrl}
@@ -91,7 +92,7 @@ export default function AdminDashboard() {
                     className="bg-[#b8958d] text-white p-2 rounded hover:bg-[#a07c6c] transition flex items-center justify-center"
                     title="Baixar Fotos"
                   >
-                    <FaDownload size={16} />
+                    <FontAwesomeIcon icon={faDownload} size="sm" />
                   </a>
                 </td>
               </tr>

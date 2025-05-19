@@ -1,6 +1,7 @@
 "use client";
+import { faDownload, faUpload } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
-import { FaUpload, FaDownload } from "react-icons/fa";
 
 interface FotoEstudio {
   id: number;
@@ -52,7 +53,7 @@ export default function DashboardCliente() {
         {}
         <div className="flex-1 bg-white rounded shadow p-6 border border-gray-200">
           <h2 className="text-xl text-[#b8958d] mb-4 font-semibold flex items-center gap-2">
-            <FaUpload /> Enviar fotos para revelação
+            <FontAwesomeIcon icon={faUpload} /> Enviar fotos para revelação
           </h2>
           <form onSubmit={handleEnviarFotos} className="flex flex-col gap-4">
             <input
@@ -68,7 +69,7 @@ export default function DashboardCliente() {
               disabled={fotos.length === 0 || enviando}
               className="bg-[#b8958d] text-white px-4 py-2 rounded hover:bg-[#a07c6c] transition disabled:opacity-50 flex items-center gap-2 justify-center"
             >
-              <FaUpload />
+              <FontAwesomeIcon icon={faUpload} />
               {enviando ? "Enviando..." : "Enviar Fotos"}
             </button>
             {fotos.length > 0 && (
@@ -83,7 +84,7 @@ export default function DashboardCliente() {
         {}
         <div className="flex-1 bg-white rounded shadow p-6 border border-gray-200">
           <h2 className="text-xl text-[#b8958d] mb-4 font-semibold flex items-center gap-2">
-            <FaDownload /> Suas fotos do estúdio
+            <FontAwesomeIcon icon={faDownload} /> Suas fotos do estúdio
           </h2>
           {fotosEstudioMock.length === 0 ? (
             <p className="text-[#b8958d]">Nenhuma foto disponível ainda.</p>
@@ -108,7 +109,7 @@ export default function DashboardCliente() {
                         className="bg-[#b8958d] text-white p-2 rounded hover:bg-[#a07c6c] transition flex items-center justify-center"
                         title="Baixar Foto"
                       >
-                        <FaDownload size={16} />
+                        <FontAwesomeIcon icon={faDownload} size="sm" />
                       </a>
                     </td>
                   </tr>

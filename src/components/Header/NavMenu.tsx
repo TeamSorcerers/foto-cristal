@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 export type NavMenuButton = {
     content: string;
     route: string;
+    highLightWhenOnRoutes?: string[];
 }
 
 export type NavMenuProps = {
@@ -35,7 +36,7 @@ export default function NavMenu({ buttons }: NavMenuProps) {
                                 hover:text-[#af886c]
                                 hover:opacity-100
                                 ${
-                                    pathname === buttonData.route
+                                    (pathname === buttonData.route || buttonData.highLightWhenOnRoutes?.includes(pathname))
                                     ? "text-[#a67b5b]"
                                     : "text-[#b8958d] opacity-80"
                                 }`

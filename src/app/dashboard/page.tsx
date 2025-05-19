@@ -1,5 +1,6 @@
 'use client';
 
+import ClientArea from "@/components/Dashboard/ClientArea";
 import Header from "@/components/Header/Header";
 import { useAuth } from "@/context/AuthUserContext";
 import { useRouter } from "next/navigation";
@@ -28,8 +29,8 @@ export default function Dashboard(){
     return (
       <div className="w-full h-full">
         <Header />
-        <div className="px-4 py-6 max-w-screen-xl mx-auto flex flex-col gap-8 items-center">
-
+        <div className="md:px-4 md:py-6 md:max-w-screen-xl mx-auto flex flex-col gap-8 items-center">
+          <ClientArea />
         </div>
       </div>
     );

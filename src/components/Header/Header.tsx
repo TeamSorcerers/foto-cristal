@@ -18,7 +18,8 @@ const navButtons: NavMenuButton[] = [
     },
     {
         content: "Área de acesso",
-        route: "/login"
+        route: "/login",
+        highLightWhenOnRoutes: ["/dashboard"]
     },
     {
         content: "Contato",

@@ -1,6 +1,6 @@
 'use client';
 
-import DashboardMenu from "@/components/DashboardMenu/DashboardMenu";
+import Header from "@/components/Header/Header";
 import { useAuth } from "@/context/AuthUserContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -27,11 +27,9 @@ export default function Dashboard(){
 
     return (
       <div className="w-full h-full">
-        <div className="w-full h-full flex md:flex-row items-center gap-2">
-            <DashboardMenu />
-            <main className="w-full h-full flex flex-col items-center">
+        <Header />
+        <div className="px-4 py-6 max-w-screen-xl mx-auto flex flex-col gap-8 items-center">
 
-            </main>
         </div>
       </div>
     );
